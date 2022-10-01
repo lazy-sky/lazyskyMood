@@ -1,0 +1,22 @@
+.soundTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px;
+
+  .header {
+    display: flex;
+
+    .title {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+  }
+
+  .soundControl {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
