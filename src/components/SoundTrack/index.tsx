@@ -4,6 +4,8 @@ import { PauseIcon, PlayIcon, AudioDefaultIcon, MuteIcon } from 'assets/svgs'
 import style from './soundTrack.module.scss'
 import VolumeSlider from 'components/VolumeSlider'
 import { useMount } from 'react-use'
+import { isTimerExpiredState } from 'store/atom'
+import { useRecoilValue } from 'recoil'
 
 interface ISoundProps {
   sound: HTMLAudioElement
@@ -14,6 +16,7 @@ interface ISoundProps {
 const SoundTrack = ({ sound, icon = <AudioDefaultIcon />, title }: ISoundProps) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(50)
+  const isTimerExpired = useRecoilValue(isTimerExpiredState)
 
   useMount(() => {
     sound.loop = true
@@ -22,6 +25,14 @@ const SoundTrack = ({ sound, icon = <AudioDefaultIcon />, title }: ISoundProps) 
   useEffect(() => {
     sound.volume = volume / 100
   }, [sound, volume])
+
+  useEffect(() => {
+    if (isTimerExpired) {
+      sound.pause()
+      sound.currentTime = 0
+      setIsPlaying(false)
+    }
+  }, [isTimerExpired, sound])
 
   const handleStartClick = useCallback(() => {
     sound.play()
