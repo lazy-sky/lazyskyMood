@@ -1,5 +1,5 @@
 export default class Validate {
-  static expiryTimestamp(expiryTimestamp: Date) {
+  static expiryTimestamp(expiryTimestamp: number | Date) {
     const isValid = new Date(expiryTimestamp).getTime() > 0
     if (!isValid) {
       console.warn('react-timer-hook: { useTimer } Invalid expiryTimestamp settings', expiryTimestamp) // eslint-disable-line
