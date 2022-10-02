@@ -1,3 +1,5 @@
+@use 'styles/color';
+
 .soundTrack {
   display: flex;
   flex-direction: column;
@@ -11,6 +13,20 @@
       display: flex;
       gap: 8px;
       align-items: center;
+
+      .icon {
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      &.active {
+        font-weight: 700;
+
+        .icon {
+          background-color: color.$GRAY6;
+          fill: color.$GRAYE;
+        }
+      }
     }
   }
 

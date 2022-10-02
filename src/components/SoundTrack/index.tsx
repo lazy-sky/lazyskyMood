@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useCallback, useState } from 'react'
-
-import { PauseIcon, PlayIcon, AudioDefaultIcon, MuteIcon } from 'assets/svgs'
-import style from './soundTrack.module.scss'
-import VolumeSlider from 'components/VolumeSlider'
-import { useMount } from 'react-use'
-import { isTimerExpiredState } from 'store/atom'
 import { useRecoilValue } from 'recoil'
+import { useMount } from 'react-use'
+import cx from 'classnames'
+
+import { isTimerExpiredState } from 'store/atom'
+import VolumeSlider from 'components/VolumeSlider'
+import { PauseIcon, PlayIcon, AudioDefaultIcon, MuteIcon } from 'assets/svgs'
+
+import style from './soundTrack.module.scss'
 
 interface ISoundProps {
   sound: HTMLAudioElement
@@ -71,9 +73,11 @@ const SoundTrack = ({ sound, icon = <AudioDefaultIcon />, title }: ISoundProps) 
   return (
     <div className={style.soundTrack}>
       <div className={style.header}>
-        <div className={style.title}>
-          {icon}
-          {title}
+        <div className={cx(style.title, isPlaying && style.active)}>
+          {/* {icon}
+          {title} */}
+          <span className={style.icon}>{icon}</span>
+          <span>{title}</span>
         </div>
       </div>
       <div className={style.soundControl}>

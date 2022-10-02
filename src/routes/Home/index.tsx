@@ -44,7 +44,7 @@ const Home = () => {
   }
 
   return (
-    <div style={{ display: 'relative' }}>
+    <div>
       <div className={style.home}>
         <div className={style.logoTitle}>
           <img src={logoCaligraphy} alt='' />
