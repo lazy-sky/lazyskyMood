@@ -16,3 +16,6 @@ export { ReactComponent as FirePlaceIcon } from './fireplace.svg'
 export { ReactComponent as NightIcon } from './bedtime.svg'
 export { ReactComponent as CafeIcon } from './local_cafe.svg'
 export { ReactComponent as WindIcon } from './air.svg'
+
+export { ReactComponent as YoutubeIcon } from './youtube_activity.svg'
+export { ReactComponent as BlogIcon } from './rss_feed.svg'
