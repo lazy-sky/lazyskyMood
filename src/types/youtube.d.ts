@@ -9,7 +9,7 @@ interface IYoutubeVideo {
     channelTitle: string
     description: string
     thumbnails: {
-      default: {
+      high: {
         url: string
       }
     }
