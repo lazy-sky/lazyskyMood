@@ -1,0 +1,14 @@
+@use 'styles/color';
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: color.$GRAY2;
+  background: color.$GRAYC;
+  border-bottom: 2px solid color.$GRAY8;
+
+  > * {
+    font-size: 14px;
+  }
+}
